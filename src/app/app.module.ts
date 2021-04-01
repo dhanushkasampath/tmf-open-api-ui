@@ -10,6 +10,12 @@ import { QueryCustomerComponent } from './customer-mgt/query-customer/query-cust
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatFormField, MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {UtilMaterialModule} from "./util/util-material.module";
+import {CommonModule} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -23,7 +29,12 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     AppRoutingModule,
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    CommonModule,
+    UtilMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
