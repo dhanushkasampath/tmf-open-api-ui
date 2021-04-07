@@ -3,3 +3,20 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.form-container{
+    padding: 25px;
+}
+
+
+.mat-form-field-appearance-outline .mat-form-field-infix{
+    padding: 12px;
+    border: 0;
+}
+.form-container .field-label{
+    margin-top: 10px;
+}
+
+.mat-form-field{
+    width: 100%;
+}
