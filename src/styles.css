@@ -1,22 +1,65 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~bootstrap/dist/css/bootstrap.min.css';
+@import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-.form-container{
-    padding: 25px;
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-
-.mat-form-field-appearance-outline .mat-form-field-infix{
-    padding: 12px;
-    border: 0;
-}
-.form-container .field-label{
-    margin-top: 10px;
+.form-container {
+  padding: 25px;
 }
 
-.mat-form-field{
-    width: 100%;
+.mat-form-field-appearance-outline .mat-form-field-infix {
+  padding: 12px;
+  border: 0;
+}
+.form-container .field-label {
+  /* margin-top: 10px; */
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.section-topic h3 {
+  margin: 16px 0;
+  font-weight: bold;
+  color: #652d86;
+  font-size: 18px;
+  letter-spacing: 0.6px;
+}
+
+.sub-topic-label {
+  font-weight: bold;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+}
+
+.btn-primary {
+  background-color: #652d86;
+  border-color: #652d86;
+}
+
+.btn-primary:hover {
+  background-color: #652d86;
+  border-color: #652d86;
+  box-shadow: none;
+}
+
+.btn-primary:focus {
+  background-color: #652d86;
+  border-color: #652d86;
+  box-shadow: none;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus {
+  background-color: #652d86;
+  border-color: #652d86;
+  box-shadow: none;
 }
