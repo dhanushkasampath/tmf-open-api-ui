@@ -1,921 +1,230 @@
 <div class="container-fluid">
 
-  <!--<div class="button-wrapper">
-    <button routerLink="calculate-price">Query Customer</button>
-  </div>-->
+    <!--<div class="button-wrapper">
+      <button routerLink="calculate-price">Query Customer</button>
+    </div>-->
 
-  <div class="common-form">
-    <div class="row d-flex justify-content-center">
-      <form [formGroup]="queryForm">
-        <!--<div class="col-xs-1 text-center">
-          <div
-            style="border:1px; border-style:solid; border-spacing: 15px 50px; border-collapse: separate; border-color:#808080; padding: 1em;">
-            <div class="input-wrapper">
-              <label>id: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>name: </label>
-              <input formControlName="singleUnitQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>href: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>status: </label>
-              <input formControlName="singleUnitQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>type: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>statusReason: </label>
-              <input formControlName="singleUnitQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>baseType: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>schemaLocation: </label>
-              <input formControlName="singleUnitQuantity" type="text"/>
-            </div>
-          </div>
+    <div class="common-form">
+        <div class="row d-flex justify-content-center">
+            <form [formGroup]="queryForm">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="row">
+                            <mat-label class="col-4 common-label">Id</mat-label>
+                            <mat-form-field class="col-8" appearance="outline">
+                                <input matInput placeholder="cartonQuantity*" [formControlName]="'id'">
+                            </mat-form-field>
+                        </div>
 
-          <div>
-            <h4>Valid For</h4>
-          </div>
-          &lt;!&ndash;validFor&ndash;&gt;
-          <div>
-            <div class="input-wrapper">
-              <label>primaryId: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>parentEntity: </label>
-              <input formControlName="singleUnitQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>parentId: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>immediateParent: </label>
-              <input formControlName="singleUnitQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>immediateParentId: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>startDateTime: </label>
-              <input formControlName="singleUnitQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>endDateTime: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-          </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <mat-label class="col-4 common-label">Name</mat-label>
+                            <mat-form-field class="col-8" appearance="outline">
+                                <input matInput placeholder="cartonQuantity*" [formControlName]="'name'">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <mat-label class="col-4 common-label">Href</mat-label>
+                            <mat-form-field class="col-8" appearance="outline">
+                                <input matInput placeholder="cartonQuantity*" [formControlName]="'href'">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <mat-label class="col-4 common-label">Status</mat-label>
+                            <mat-form-field class=col-8 appearance="outline">
+                                <input matInput placeholder="cartonQuantity*" [formControlName]="'status'">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
 
-          <div>
-            <h4>Engaged party</h4>
-          </div>
-          &lt;!&ndash;        engagedParty&ndash;&gt;
-          <div>
-            <div class="input-wrapper">
-              <label>id: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>primaryId: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>parentEntity: </label>
-              <input formControlName="singleUnitQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>parentId: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>immediateParent: </label>
-              <input formControlName="singleUnitQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>immediateParentId: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>referredType: </label>
-              <input formControlName="singleUnitQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>role: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>baseType: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>type: </label>
-              <input formControlName="singleUnitQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>name: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>href: </label>
-              <input formControlName="singleUnitQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>schemaLocation: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-          </div>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="row">
+                            <mat-label class="col-4 common-label">Type</mat-label>
+                            <mat-form-field class="col-8" appearance="outline">
+                                <input matInput placeholder="cartonQuantity*" [formControlName]="'type'">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <mat-label class="col-4 common-label">Status Reason</mat-label>
+                            <mat-form-field class="col-8" appearance="outline">
+                                <input matInput placeholder="cartonQuantity*" [formControlName]="'statusReason'">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <mat-label class="col-4 common-label">Base Type</mat-label>
+                            <mat-form-field class="col-8" appearance="outline">
+                                <input matInput placeholder="cartonQuantity*" [formControlName]="'baseType'">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <mat-label class="col-4 common-label">Schema Location</mat-label>
+                            <mat-form-field class="col-8" appearance="outline">
+                                <input matInput placeholder="cartonQuantity*" [formControlName]="'schemaLocation'">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
 
-          <div>
-            <h4>Account</h4>
-          </div>
-          &lt;!&ndash;account&ndash;&gt;
-          <div>
-            <div class="input-wrapper">
-              <label>id: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>primaryId: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>parentEntity: </label>
-              <input formControlName="singleUnitQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>parentId: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>immediateParent: </label>
-              <input formControlName="singleUnitQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>immediateParentId: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>referredType: </label>
-              <input formControlName="singleUnitQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>baseType: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>type: </label>
-              <input formControlName="singleUnitQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>name: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>description: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>href: </label>
-              <input formControlName="singleUnitQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>schemaLocation: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-          </div>
+                <div class="row section-topic">
+                    <div class="col-12">Valid For</div>
+                </div>
 
-          <div>
-            <h4>Payment Method</h4>
-          </div>
-          &lt;!&ndash;        paymentMethod&ndash;&gt;
-          <div>
-            <div class="input-wrapper">
-              <label>id: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>primaryId: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>parentEntity: </label>
-              <input formControlName="singleUnitQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>parentId: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>immediateParent: </label>
-              <input formControlName="singleUnitQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>immediateParentId: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>referredType: </label>
-              <input formControlName="singleUnitQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>baseType: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>type: </label>
-              <input formControlName="singleUnitQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>name: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>href: </label>
-              <input formControlName="singleUnitQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>schemaLocation: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-          </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="row">
+                            <mat-label class="col-4 common-label">Start data/time</mat-label>
+                            <mat-form-field class="col-8" appearance="outline">
+                                <input matInput placeholder="cartonQuantity*" [formControlName]="'startDateTime'">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <mat-label class="col-4 common-label">End date/time</mat-label>
+                            <mat-form-field class="col-8" appearance="outline">
+                                <input matInput placeholder="cartonQuantity*" [formControlName]="'endDateTime'">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
 
-          <div>
-            <h4>Characteristic</h4>
-          </div>
-          &lt;!&ndash;        characteristic&ndash;&gt;
-          <div>
-            <div class="input-wrapper">
-              <label>id: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>primaryId: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>parentEntity: </label>
-              <input formControlName="singleUnitQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>parentId: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>immediateParent: </label>
-              <input formControlName="singleUnitQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>immediateParentId: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>baseType: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>type: </label>
-              <input formControlName="singleUnitQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>valueType: </label>
-              <input formControlName="singleUnitQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>value: </label>
-              <input formControlName="singleUnitQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>name: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>schemaLocation: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-          </div>
+                <div class="row section-topic">
+                    <div class="col-12">Account</div>
+                </div>
 
-          <div>
-            <h4>Related Party</h4>
-          </div>
-          &lt;!&ndash;relatedParty&ndash;&gt;
-          <div>
-            <div class="input-wrapper">
-              <label>id: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>primaryId: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>parentEntity: </label>
-              <input formControlName="singleUnitQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>parentId: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>immediateParent: </label>
-              <input formControlName="singleUnitQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>immediateParentId: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>baseType: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>type: </label>
-              <input formControlName="singleUnitQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>name: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>role: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>href: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>schemaLocation: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-          </div>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="row">
+                            <mat-label class="col-4 common-label">Id</mat-label>
+                            <mat-form-field class="col-8" appearance="outline">
+                                <input matInput placeholder="cartonQuantity*" [formControlName]="'accountId'">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <mat-label class="col-4 common-label">Reffered type</mat-label>
+                            <mat-form-field class=col-8 appearance="outline">
+                                <input matInput placeholder="cartonQuantity*" [formControlName]="'accountReferredType'">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <mat-label class="col-4 common-label">Base Type</mat-label>
+                            <mat-form-field class="col-8" appearance="outline">
+                                <input matInput placeholder="cartonQuantity*" [formControlName]="'accountBaseType'">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <mat-label class="col-4 common-label">Type</mat-label>
+                            <mat-form-field class="col-8" appearance="outline">
+                                <input matInput placeholder="cartonQuantity*" [formControlName]="'accountType'">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
 
-          <div>
-            <h4>Agreement</h4>
-          </div>
-          &lt;!&ndash;agreement&ndash;&gt;
-          <div>
-            <div class="input-wrapper">
-              <label>id: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>primaryId: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>parentEntity: </label>
-              <input formControlName="singleUnitQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>parentId: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>immediateParent: </label>
-              <input formControlName="singleUnitQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>immediateParentId: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>referrencedType: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>baseType: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>type: </label>
-              <input formControlName="singleUnitQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>name: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>href: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-            <div class="input-wrapper">
-              <label>schemaLocation: </label>
-              <input formControlName="cartonQuantity" type="text"/>
-            </div>
-          </div>
-          <div
-            style="border:1px; border-style:solid; border-spacing: 15px 50px; border-collapse: separate; border-color:#808080; padding: 1em;">
-            <div>
-              <h4>Credit Profile</h4>
-            </div>
-            &lt;!&ndash;creditProfile&ndash;&gt;
-            <div>
-              <div class="input-wrapper">
-                <label>id: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>primaryId: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>parentEntity: </label>
-                <input formControlName="singleUnitQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>parentId: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>immediateParent: </label>
-                <input formControlName="singleUnitQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>immediateParentId: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>creditProfileDate: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>creditScore: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>baseType: </label>
-                <input formControlName="singleUnitQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>type: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>creditRiskRating: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>schemaLocation: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div>
-                <h6>Valid For</h6>
-              </div>
-              &lt;!&ndash;          validFor&ndash;&gt;
-              <div class="input-wrapper">
-                <label>primaryId: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>parentEntity: </label>
-                <input formControlName="singleUnitQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>parentId: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>immediateParent: </label>
-                <input formControlName="singleUnitQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>immediateParentId: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>startDateTime: </label>
-                <input formControlName="singleUnitQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>endDateTime: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-            </div>
-          </div>
-          <div
-            style="border:1px; border-style:solid; border-spacing: 15px 50px; border-collapse: separate; border-color:#808080; padding: 1em;">
-            <div>
-              <h4>Contact Medium</h4>
-            </div>
-            &lt;!&ndash;contactMedium&ndash;&gt;
-            <div>
-              <div class="input-wrapper">
-                <label>id: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>primaryId: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>parentEntity: </label>
-                <input formControlName="singleUnitQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>parentId: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>immediateParent: </label>
-                <input formControlName="singleUnitQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>immediateParentId: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>mediumType: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>preferred: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>baseType: </label>
-                <input formControlName="singleUnitQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>referrencedType: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>schemaLocation: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div>
-                <h6>Valid For</h6>
-              </div>
-              &lt;!&ndash;          validFor&ndash;&gt;
-              <div class="input-wrapper">
-                <label>primaryId: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>parentEntity: </label>
-                <input formControlName="singleUnitQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>parentId: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>immediateParent: </label>
-                <input formControlName="singleUnitQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>immediateParentId: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>startDateTime: </label>
-                <input formControlName="singleUnitQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>endDateTime: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div>
-                <h6>Characteristic</h6>
-              </div>
-              &lt;!&ndash;          characteristic&ndash;&gt;
-              <div class="input-wrapper">
-                <label>id: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>primaryId: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>parentEntity: </label>
-                <input formControlName="singleUnitQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>parentId: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>immediateParent: </label>
-                <input formControlName="singleUnitQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>immediateParentId: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>country: </label>
-                <input formControlName="singleUnitQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>city: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>contactType: </label>
-                <input formControlName="singleUnitQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>socialNetworkId: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>emailAddress: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>phoneNumber: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>stateOrProvince: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>faxNumber: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>postCode: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>street1: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>street2: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>schemaLocation: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>type: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-              <div class="input-wrapper">
-                <label>baseType: </label>
-                <input formControlName="cartonQuantity" type="text"/>
-              </div>
-            </div>
-          </div>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="row">
+                            <mat-label class="col-4 common-label">Name</mat-label>
+                            <mat-form-field class="col-8" appearance="outline">
+                                <input matInput placeholder="cartonQuantity*" [formControlName]="'accountName'">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <mat-label class="col-4 common-label">Description</mat-label>
+                            <mat-form-field class="col-8" appearance="outline">
+                                <input matInput placeholder="cartonQuantity*" [formControlName]="'accountDescription'">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <mat-label class="col-4 common-label">Href</mat-label>
+                            <mat-form-field class="col-8" appearance="outline">
+                                <input matInput placeholder="cartonQuantity*" [formControlName]="'accountHref'">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <mat-label class="col-4 common-label">Schema Location</mat-label>
+                            <mat-form-field class="col-8" appearance="outline">
+                                <input matInput placeholder="cartonQuantity*"
+                                    [formControlName]="'accountSchemaLocation'">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
 
-        </div>-->
-        <div class="row">
-          <div class="col-3">
-            <div class="row">
-              <mat-label class="col-4 common-label">Id</mat-label>
-              <mat-form-field class="col-8" appearance="outline">
-                <input matInput placeholder="cartonQuantity*"
-                       [formControlName]="'href'">
-              </mat-form-field>
-            </div>
+                <div class="row section-topic">
+                    <div class="col-12">Agreement</div>
+                </div>
 
-          </div>
-          <div class="col-3">
-            <div class="row">
-              <mat-label class="col-4 common-label">Name</mat-label>
-              <mat-form-field class="col-8" appearance="outline">
-                <input matInput placeholder="cartonQuantity*"
-                       [formControlName]="'href'">
-              </mat-form-field>
-            </div>
-          </div>
-          <div class="col-3">
-            <div class="row">
-              <mat-label class="col-4 common-label">Href</mat-label>
-              <mat-form-field class="col-8" appearance="outline">
-                <input matInput placeholder="cartonQuantity*"
-                       [formControlName]="'href'">
-              </mat-form-field>
-            </div>
-          </div>
-          <div class="col-3">
-            <div class="row">
-              <mat-label class="col-4 common-label">Status</mat-label>
-              <mat-form-field class=col-8 appearance="outline">
-                <input matInput placeholder="cartonQuantity*"
-                       [formControlName]="'href'">
-              </mat-form-field>
-            </div>
-          </div>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="row">
+                            <mat-label class="col-4 common-label">Id</mat-label>
+                            <mat-form-field class="col-8" appearance="outline">
+                                <input matInput placeholder="cartonQuantity*" [formControlName]="'agreementId'">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <mat-label class="col-4 common-label">Referred type</mat-label>
+                            <mat-form-field class="col-8" appearance="outline">
+                                <input matInput placeholder="cartonQuantity*"
+                                    [formControlName]="'agreementReferredType'">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <mat-label class="col-4 common-label">Base Type</mat-label>
+                            <mat-form-field class="col-8" appearance="outline">
+                                <input matInput placeholder="cartonQuantity*" [formControlName]="'agreementBaseType'">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <mat-label class="col-4 common-label">Type</mat-label>
+                            <mat-form-field class="col-8" appearance="outline">
+                                <input matInput placeholder="cartonQuantity*" [formControlName]="'agreementType'">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-button-group">
+                        <button (click)="onFormSubmit(queryForm.value)" class="btn btn-primary">
+                            Save
+                        </button>
+                    </div>
+
+                </div>
+            </form>
         </div>
-
-        <div class="row">
-          <div class="col-3">
-            <div class="row">
-              <mat-label class="col-4 common-label">Type</mat-label>
-              <mat-form-field class="col-8" appearance="outline">
-                <input matInput placeholder="cartonQuantity*"
-                       [formControlName]="'href'">
-              </mat-form-field>
-            </div>
-          </div>
-          <div class="col-3">
-            <div class="row">
-              <mat-label class="col-4 common-label">Status Reason</mat-label>
-              <mat-form-field class="col-8" appearance="outline">
-                <input matInput placeholder="cartonQuantity*"
-                       [formControlName]="'href'">
-              </mat-form-field>
-            </div>
-          </div>
-          <div class="col-3">
-            <div class="row">
-              <mat-label class="col-4 common-label">Base Type</mat-label>
-              <mat-form-field class="col-8" appearance="outline">
-                <input matInput placeholder="cartonQuantity*"
-                       [formControlName]="'href'">
-              </mat-form-field>
-            </div>
-          </div>
-          <div class="col-3">
-            <div class="row">
-              <mat-label class="col-4 common-label">Schema Location</mat-label>
-              <mat-form-field class="col-8" appearance="outline">
-                <input matInput placeholder="cartonQuantity*"
-                       [formControlName]="'href'">
-              </mat-form-field>
-            </div>
-          </div>
-        </div>
-
-        <div class="row section-topic">
-          <div class="col-12">Valid For</div>
-        </div>
-
-        <div class="row">
-          <div class="col-6">
-            <div class="row">
-              <mat-label class="col-4 common-label">Start data/time</mat-label>
-              <mat-form-field class="col-8" appearance="outline">
-                <input matInput placeholder="cartonQuantity*"
-                       [formControlName]="'href'">
-              </mat-form-field>
-            </div>
-          </div>
-          <div class="col-6">
-            <div class="row">
-              <mat-label class="col-4 common-label">End date/time</mat-label>
-              <mat-form-field class="col-8" appearance="outline">
-                <input matInput placeholder="cartonQuantity*"
-                       [formControlName]="'href'">
-              </mat-form-field>
-            </div>
-          </div>
-        </div>
-
-        <div class="row section-topic">
-          <div class="col-12">Account</div>
-        </div>
-
-        <div class="row">
-          <div class="col-3">
-            <div class="row">
-              <mat-label class="col-4 common-label">Id</mat-label>
-              <mat-form-field class="col-8" appearance="outline">
-                <input matInput placeholder="cartonQuantity*"
-                       [formControlName]="'href'">
-              </mat-form-field>
-            </div>
-          </div>
-          <div class="col-3">
-            <div class="row">
-              <mat-label class="col-4 common-label">Reffered type</mat-label>
-              <mat-form-field class=col-8 appearance="outline">
-                <input matInput placeholder="cartonQuantity*"
-                       [formControlName]="'href'">
-              </mat-form-field>
-            </div>
-          </div>
-          <div class="col-3">
-            <div class="row">
-              <mat-label class="col-4 common-label">Base Type</mat-label>
-              <mat-form-field class="col-8" appearance="outline">
-                <input matInput placeholder="cartonQuantity*"
-                       [formControlName]="'href'">
-              </mat-form-field>
-            </div>
-          </div>
-          <div class="col-3">
-            <div class="row">
-              <mat-label class="col-4 common-label">Type</mat-label>
-              <mat-form-field class="col-8" appearance="outline">
-                <input matInput placeholder="cartonQuantity*"
-                       [formControlName]="'href'">
-              </mat-form-field>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-3">
-            <div class="row">
-              <mat-label class="col-4 common-label">Name</mat-label>
-              <mat-form-field class="col-8" appearance="outline">
-                <input matInput placeholder="cartonQuantity*"
-                       [formControlName]="'href'">
-              </mat-form-field>
-            </div>
-          </div>
-          <div class="col-3">
-            <div class="row">
-              <mat-label class="col-4 common-label">Description</mat-label>
-              <mat-form-field class="col-8" appearance="outline">
-                <input matInput placeholder="cartonQuantity*"
-                       [formControlName]="'href'">
-              </mat-form-field>
-            </div>
-          </div>
-          <div class="col-3">
-            <div class="row">
-              <mat-label class="col-4 common-label">Href</mat-label>
-              <mat-form-field class="col-8" appearance="outline">
-                <input matInput placeholder="cartonQuantity*"
-                       [formControlName]="'href'">
-              </mat-form-field>
-            </div>
-          </div>
-          <div class="col-3">
-            <div class="row">
-              <mat-label class="col-4 common-label">Schema Location</mat-label>
-              <mat-form-field class="col-8" appearance="outline">
-                <input matInput placeholder="cartonQuantity*"
-                       [formControlName]="'href'">
-              </mat-form-field>
-            </div>
-          </div>
-        </div>
-
-        <div class="row section-topic">
-          <div class="col-12">Agreement</div>
-        </div>
-
-        <div class="row">
-          <div class="col-3">
-            <div class="row">
-              <mat-label class="col-4 common-label">Id</mat-label>
-              <mat-form-field class="col-8" appearance="outline">
-                <input matInput placeholder="cartonQuantity*"
-                       [formControlName]="'href'">
-              </mat-form-field>
-            </div>
-          </div>
-          <div class="col-3">
-            <div class="row">
-              <mat-label class="col-4 common-label">Referred type</mat-label>
-              <mat-form-field class="col-8" appearance="outline">
-                <input matInput placeholder="cartonQuantity*"
-                       [formControlName]="'href'">
-              </mat-form-field>
-            </div>
-          </div>
-          <div class="col-3">
-            <div class="row">
-              <mat-label class="col-4 common-label">Base Type</mat-label>
-              <mat-form-field class="col-8" appearance="outline">
-                <input matInput placeholder="cartonQuantity*"
-                       [formControlName]="'href'">
-              </mat-form-field>
-            </div>
-          </div>
-          <div class="col-3">
-            <div class="row">
-              <mat-label class="col-4 common-label">Type</mat-label>
-              <mat-form-field class="col-8" appearance="outline">
-                <input matInput placeholder="cartonQuantity*"
-                       [formControlName]="'href'">
-              </mat-form-field>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="form-button-group">
-            <button (click)="onFormSubmit(queryForm.value)" class="btn btn-primary">
-              Save
-            </button>
-          </div>
-
-        </div>
-      </form>
     </div>
-  </div>
-
-
 </div>

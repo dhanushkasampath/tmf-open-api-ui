@@ -1,6 +1,230 @@
-<div>
+<div class="container-fluid">
 
-  <div class="button-wrapper">
-    <button routerLink="calculate-price">Add New Customer</button>
+  <!--<div class="button-wrapper">
+    <button routerLink="calculate-price">Query Customer</button>
+  </div>-->
+
+  <div class="common-form">
+      <div class="row d-flex justify-content-center">
+          <form [formGroup]="queryForm">
+              <div class="row">
+                  <div class="col-3">
+                      <div class="row">
+                          <mat-label class="col-4 common-label">Id</mat-label>
+                          <mat-form-field class="col-8" appearance="outline">
+                              <input matInput placeholder="cartonQuantity*" [formControlName]="'id'">
+                          </mat-form-field>
+                      </div>
+
+                  </div>
+                  <div class="col-3">
+                      <div class="row">
+                          <mat-label class="col-4 common-label">Name</mat-label>
+                          <mat-form-field class="col-8" appearance="outline">
+                              <input matInput placeholder="cartonQuantity*" [formControlName]="'name'">
+                          </mat-form-field>
+                      </div>
+                  </div>
+                  <div class="col-3">
+                      <div class="row">
+                          <mat-label class="col-4 common-label">Href</mat-label>
+                          <mat-form-field class="col-8" appearance="outline">
+                              <input matInput placeholder="cartonQuantity*" [formControlName]="'href'">
+                          </mat-form-field>
+                      </div>
+                  </div>
+                  <div class="col-3">
+                      <div class="row">
+                          <mat-label class="col-4 common-label">Status</mat-label>
+                          <mat-form-field class=col-8 appearance="outline">
+                              <input matInput placeholder="cartonQuantity*" [formControlName]="'status'">
+                          </mat-form-field>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="col-3">
+                      <div class="row">
+                          <mat-label class="col-4 common-label">Type</mat-label>
+                          <mat-form-field class="col-8" appearance="outline">
+                              <input matInput placeholder="cartonQuantity*" [formControlName]="'type'">
+                          </mat-form-field>
+                      </div>
+                  </div>
+                  <div class="col-3">
+                      <div class="row">
+                          <mat-label class="col-4 common-label">Status Reason</mat-label>
+                          <mat-form-field class="col-8" appearance="outline">
+                              <input matInput placeholder="cartonQuantity*" [formControlName]="'statusReason'">
+                          </mat-form-field>
+                      </div>
+                  </div>
+                  <div class="col-3">
+                      <div class="row">
+                          <mat-label class="col-4 common-label">Base Type</mat-label>
+                          <mat-form-field class="col-8" appearance="outline">
+                              <input matInput placeholder="cartonQuantity*" [formControlName]="'baseType'">
+                          </mat-form-field>
+                      </div>
+                  </div>
+                  <div class="col-3">
+                      <div class="row">
+                          <mat-label class="col-4 common-label">Schema Location</mat-label>
+                          <mat-form-field class="col-8" appearance="outline">
+                              <input matInput placeholder="cartonQuantity*" [formControlName]="'schemaLocation'">
+                          </mat-form-field>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="row section-topic">
+                  <div class="col-12">Valid For</div>
+              </div>
+
+              <div class="row">
+                  <div class="col-6">
+                      <div class="row">
+                          <mat-label class="col-4 common-label">Start data/time</mat-label>
+                          <mat-form-field class="col-8" appearance="outline">
+                              <input matInput placeholder="cartonQuantity*" [formControlName]="'startDateTime'">
+                          </mat-form-field>
+                      </div>
+                  </div>
+                  <div class="col-6">
+                      <div class="row">
+                          <mat-label class="col-4 common-label">End date/time</mat-label>
+                          <mat-form-field class="col-8" appearance="outline">
+                              <input matInput placeholder="cartonQuantity*" [formControlName]="'endDateTime'">
+                          </mat-form-field>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="row section-topic">
+                  <div class="col-12">Account</div>
+              </div>
+
+              <div class="row">
+                  <div class="col-3">
+                      <div class="row">
+                          <mat-label class="col-4 common-label">Id</mat-label>
+                          <mat-form-field class="col-8" appearance="outline">
+                              <input matInput placeholder="cartonQuantity*" [formControlName]="'accountId'">
+                          </mat-form-field>
+                      </div>
+                  </div>
+                  <div class="col-3">
+                      <div class="row">
+                          <mat-label class="col-4 common-label">Reffered type</mat-label>
+                          <mat-form-field class=col-8 appearance="outline">
+                              <input matInput placeholder="cartonQuantity*" [formControlName]="'accountReferredType'">
+                          </mat-form-field>
+                      </div>
+                  </div>
+                  <div class="col-3">
+                      <div class="row">
+                          <mat-label class="col-4 common-label">Base Type</mat-label>
+                          <mat-form-field class="col-8" appearance="outline">
+                              <input matInput placeholder="cartonQuantity*" [formControlName]="'accountBaseType'">
+                          </mat-form-field>
+                      </div>
+                  </div>
+                  <div class="col-3">
+                      <div class="row">
+                          <mat-label class="col-4 common-label">Type</mat-label>
+                          <mat-form-field class="col-8" appearance="outline">
+                              <input matInput placeholder="cartonQuantity*" [formControlName]="'accountType'">
+                          </mat-form-field>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="col-3">
+                      <div class="row">
+                          <mat-label class="col-4 common-label">Name</mat-label>
+                          <mat-form-field class="col-8" appearance="outline">
+                              <input matInput placeholder="cartonQuantity*" [formControlName]="'accountName'">
+                          </mat-form-field>
+                      </div>
+                  </div>
+                  <div class="col-3">
+                      <div class="row">
+                          <mat-label class="col-4 common-label">Description</mat-label>
+                          <mat-form-field class="col-8" appearance="outline">
+                              <input matInput placeholder="cartonQuantity*" [formControlName]="'accountDescription'">
+                          </mat-form-field>
+                      </div>
+                  </div>
+                  <div class="col-3">
+                      <div class="row">
+                          <mat-label class="col-4 common-label">Href</mat-label>
+                          <mat-form-field class="col-8" appearance="outline">
+                              <input matInput placeholder="cartonQuantity*" [formControlName]="'accountHref'">
+                          </mat-form-field>
+                      </div>
+                  </div>
+                  <div class="col-3">
+                      <div class="row">
+                          <mat-label class="col-4 common-label">Schema Location</mat-label>
+                          <mat-form-field class="col-8" appearance="outline">
+                              <input matInput placeholder="cartonQuantity*"
+                                  [formControlName]="'accountSchemaLocation'">
+                          </mat-form-field>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="row section-topic">
+                  <div class="col-12">Agreement</div>
+              </div>
+
+              <div class="row">
+                  <div class="col-3">
+                      <div class="row">
+                          <mat-label class="col-4 common-label">Id</mat-label>
+                          <mat-form-field class="col-8" appearance="outline">
+                              <input matInput placeholder="cartonQuantity*" [formControlName]="'agreementId'">
+                          </mat-form-field>
+                      </div>
+                  </div>
+                  <div class="col-3">
+                      <div class="row">
+                          <mat-label class="col-4 common-label">Referred type</mat-label>
+                          <mat-form-field class="col-8" appearance="outline">
+                              <input matInput placeholder="cartonQuantity*"
+                                  [formControlName]="'agreementReferredType'">
+                          </mat-form-field>
+                      </div>
+                  </div>
+                  <div class="col-3">
+                      <div class="row">
+                          <mat-label class="col-4 common-label">Base Type</mat-label>
+                          <mat-form-field class="col-8" appearance="outline">
+                              <input matInput placeholder="cartonQuantity*" [formControlName]="'agreementBaseType'">
+                          </mat-form-field>
+                      </div>
+                  </div>
+                  <div class="col-3">
+                      <div class="row">
+                          <mat-label class="col-4 common-label">Type</mat-label>
+                          <mat-form-field class="col-8" appearance="outline">
+                              <input matInput placeholder="cartonQuantity*" [formControlName]="'agreementType'">
+                          </mat-form-field>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="form-button-group">
+                      <button (click)="onFormSubmit(queryForm.value)" class="btn btn-primary">
+                          Save
+                      </button>
+                  </div>
+
+              </div>
+          </form>
+      </div>
   </div>
 </div>
