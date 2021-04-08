@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CustomerMgtComponent } from './customer-mgt/customer-mgt.component';
@@ -16,13 +16,15 @@ import {MatFormField, MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {UtilMaterialModule} from "./util/util-material.module";
 import {CommonModule} from "@angular/common";
+import { ViewCustomerComponent } from './customer-mgt/view-customer/view-customer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CustomerMgtComponent,
     CreateCustomerComponent,
-    QueryCustomerComponent
+    QueryCustomerComponent,
+    ViewCustomerComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,8 @@ import {CommonModule} from "@angular/common";
     ReactiveFormsModule,
     BrowserAnimationsModule,
     CommonModule,
-    UtilMaterialModule
+    UtilMaterialModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
