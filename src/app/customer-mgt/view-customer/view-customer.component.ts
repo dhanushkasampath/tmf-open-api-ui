@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CustomerServiceService } from '../../services/customer-service.service';
 
@@ -11,6 +11,7 @@ import { CustomerServiceService } from '../../services/customer-service.service'
 export class ViewCustomerComponent implements OnInit {
 
   customerData = [];
+  isUpdateView = false;
 
   queryForm: FormGroup;
   constructor(private formBuilder: FormBuilder,
@@ -18,7 +19,6 @@ export class ViewCustomerComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-
     this.getCustomerById();
     this.queryForm = this.formBuilder.group({
       id: new FormControl(''),
@@ -32,100 +32,29 @@ export class ViewCustomerComponent implements OnInit {
       startDateTime: new FormControl(''),
       endDateTime: new FormControl(''),
 
-      // account
-      accountId: new FormControl(''),
-      accountReferredType: new FormControl(''),
-      accountBaseType: new FormControl(''),
-      accountType: new FormControl(''),
-      accountName: new FormControl(''),
-      accountDescription: new FormControl(''),
-      accountHref: new FormControl(''),
-      accountSchemaLocation: new FormControl(''),
+      account: this.formBuilder.array([]),
 
-      // payment
-      paymentId: new FormControl(''),
-      paymentReferredType: new FormControl(''),
-      paymentBaseType: new FormControl(''),
-      paymentType: new FormControl(''),
-      paymentName: new FormControl(''),
-      paymentHref: new FormControl(''),
-      paymentSchemaLocation: new FormControl(''),
+      paymentMethod: this.formBuilder.array(
+        []),
 
-      // // characteristic
-      // characteristicId: new FormControl(''),
-      // characteristicName: new FormControl(''),
-      // characteristicType: new FormControl(''),
-      // characteristicBaseType: new FormControl(''),
-      // characteristicValue: new FormControl(''),
-      // characteristicValueType: new FormControl(''),
-      // characteristicSchemaLocation: new FormControl(''),
+      characteristic: this.formBuilder.array(
+        []),
 
-      // // relatedParty
-      // relatedPartyId: new FormControl(''),
-      // relatedPartyName: new FormControl(''),
-      // relatedPartyHref: new FormControl(''),
-      // relatedPartyReferredType: new FormControl(''),
-      // relatedPartyType: new FormControl(''),
-      // relatedPartyBaseType: new FormControl(''),
-      // relatedpartyRole: new FormControl(''),
-      // relatedPartySchemaLocation: new FormControl(''),
+      relatedParty: this.formBuilder.array(
+        []),
 
-      // // agreement
-      // agreementId: new FormControl(''),
-      // agreementName: new FormControl(''),
-      // agreementHref: new FormControl(''),
-      // agreementReferredType: new FormControl(''),
-      // agreementType: new FormControl(''),
-      // agreementBaseType: new FormControl(''),
-      // agreementSchemaLocation: new FormControl(''),
+      engagedParty: this.formBuilder.array(
+        []),
 
-      // // engagedPartyRole
-      // engagedPartyId: new FormControl(''),
-      // engagedPartyName: new FormControl(''),
-      // engagedPartyHref: new FormControl(''),
-      // engagedPartyReferredType: new FormControl(''),
-      // engagedPartyType: new FormControl(''),
-      // engagedPartyBaseType: new FormControl(''),
-      // engagedPartyRole: new FormControl(''),
-      // engagedPartySchemaLocation: new FormControl(''),
+      agreement: this.formBuilder.array(
+        []),
 
-      // // creditProfile
-      // creditProfileId: new FormControl(''),
-      // creditProfileDate: new FormControl(''),
-      // creditProfilecreditScore: new FormControl(''),
-      // creditProfilecreditRiskRating: new FormControl(''),
-      // creditProfileType: new FormControl(''),
-      // creditProfileBaseType: new FormControl(''),
-      // creditProfileSchemaLocation: new FormControl(''),
-      // creditProfileStartDateTime: new FormControl(''),
-      // creditProfileEndDateTime: new FormControl(''),
+      creditProfile: this.formBuilder.array(
+        []),
 
-      // // contactMedium
-      // contactMediumId: new FormControl(''),
-      // contactMediumMediumType: new FormControl(''),
-      // contactMediumPreferred: new FormControl(''),
-      // contactMediumBaseType: new FormControl(''),
-      // contactMediumReferredType: new FormControl(''),
-      // contactMediumSchemaLocation: new FormControl(''),
-      // contactMediumStartDateTime: new FormControl(''),
-      // contactMediumEndDateTime: new FormControl(''),
+      contactMedium: this.formBuilder.array(
+        []),
 
-      // // contact medium characteristics
-      // contactMediumCharacteristicId: new FormControl(''),
-      // contactMediumCharacteristicCountry: new FormControl(''),
-      // contactMediumCharacteristiCity: new FormControl(''),
-      // contactMediumCharacteristicContactType: new FormControl(''),
-      // contactMediumCharacteristicSocialNetworkId: new FormControl(''),
-      // contactMediumCharacteristicEmailAddress: new FormControl(''),
-      // contactMediumCharacteristicPhoneNumber: new FormControl(''),
-      // contactMediumCharacteristicStateOrProvince: new FormControl(''),
-      // contactMediumCharacteristicFaxNumber: new FormControl(''),
-      // contactMediumCharacteristicPostCode: new FormControl(''),
-      // contactMediumCharacteristicStreet1: new FormControl(''),
-      // contactMediumCharacteristicStreet2: new FormControl(''),
-      // contactMediumCharacteristicSchemaLocation: new FormControl(''),
-      // contactMediumCharacteristicType: new FormControl(''),
-      // contactMediumCharacteristicBaseType: new FormControl(''),
     });
   }
 
@@ -140,39 +69,401 @@ export class ViewCustomerComponent implements OnInit {
 
     this.customerService.getCustomerById()
       .subscribe(res => {
-
         this.customerData = res.responseData;
-        // this.queryForm.setValue({
-        //   id: res.responseData.id,
-        //   name: res.responseData.name,
-        //   href: res.responseData.href,
-        //   status: res.responseData.status,
-        //   type: res.responseData.type,
-        //   statusReason: res.responseData.statusReason,
-        //   baseType: res.responseData.baseType,
-        //   schemaLocation: res.responseData.schemaLocation,
-        //   startDateTime: res.responseData.validFor ? res.responseData.validFor.startDateTime : "",
-        //   endDateTime: res.responseData.validFor ? res.responseData.validFor.endDateTime : "",
+        const accountData = res.responseData.account;
+        const paymentMethodData = res.responseData.paymentMethod;
+        const characteristicData = res.responseData.characteristic;
+        const relatedPartyData = res.responseData.relatedParty;
+        const engagedPartyData = res.responseData.engagedParty;
+        const agreementData = res.responseData.agreement;
+        const creditProfileData = res.responseData.creditProfile;
+        const contactMediumData = res.responseData.contactMedium;
 
-        //   // account
-        //   accountId: res.responseData.account && res.responseData.account[0].id ? res.responseData.account[0].id : "",
-        //   accountReferredType: res.responseData.account && res.responseData.account[0].referredType ? res.responseData.account[0].referredType : "",
-        //   accountBaseType: res.responseData.account && res.responseData.account[0].baseType ? res.responseData.account[0].baseType : "",
-        //   accountType: res.responseData.account && res.responseData.account[0].type ? res.responseData.account[0].type : "",
-        //   accountName: res.responseData.account && res.responseData.account[0].name ? res.responseData.account[0].name : "",
-        //   accountDescription: res.responseData.account && res.responseData.account[0].description ? res.responseData.account[0].description : "",
-        //   accountHref: res.responseData.account && res.responseData.account[0].href ? res.responseData.account[0].href : "11",
-        //   accountSchemaLocation: res.responseData.account && res.responseData.account[0].schemaLocation ? res.responseData.account[0].schemaLocation : "",
+        this.queryForm.patchValue({
+          id: res.responseData.id,
+          name: res.responseData.name,
+          href: res.responseData.href,
+          status: res.responseData.status,
+          type: res.responseData.type,
+          statusReason: res.responseData.statusReason,
+          baseType: res.responseData.baseType,
+          schemaLocation: res.responseData.schemaLocation,
+          startDateTime: res.responseData.validFor.startDateTime,
+          endDateTime: res.responseData.validFor.endDateTime,
+        });
+        this.queryForm.setControl('account', this.setAccounts(accountData));
+        this.queryForm.setControl('paymentMethod', this.setPaymentMethod(paymentMethodData));
+        this.queryForm.setControl('characteristic', this.setCharacteristic(characteristicData));
+        this.queryForm.setControl('relatedParty', this.setRelatedParty(relatedPartyData));
+        this.queryForm.setControl('engagedParty', this.setEngagedParty(engagedPartyData));
+        this.queryForm.setControl('agreement', this.setAgreement(agreementData));
+        this.queryForm.setControl('creditProfile', this.setCreditProfile(creditProfileData));
+        this.queryForm.setControl('contactMedium', this.setContactMedium(contactMediumData));
 
-
-
-
-        // })
         console.log(this.customerData, "hh")
       }, err => {
         console.log(err);
       });
   }
 
+
+  updateView() {
+    console.log("bb")
+    this.isUpdateView = true;
+  }
+
+  // account
+  get accountsListFormArray() {
+    return (<FormArray>this.queryForm.get('account'));
+  }
+
+  setAccounts(accounts): FormArray {
+    const formArray = new FormArray([]);
+    accounts.forEach(data => {
+      formArray.push(this.formBuilder.group({
+        id: data.id,
+        referredType: data.referredType,
+        baseType: data.baseType,
+        type: data.type,
+        name: data.name,
+        description: data.description,
+        href: data.href,
+        schemaLocation: data.schemaLocation,
+      }));
+    });
+
+    return formArray;
+  }
+
+  addAccount() {
+    this.accountsListFormArray.push(this.formBuilder.group({
+      id: [''],
+      referredType: [''],
+      baseType: [''],
+      type: [''],
+      name: [''],
+      description: [''],
+      href: [''],
+      schemaLocation: [''],
+    }));
+  }
+
+  removeAccount(i: number) {
+    this.accountsListFormArray.removeAt(i);
+  }
+
+  // payment
+  get paymentMethodListFormArray() {
+    return (<FormArray>this.queryForm.get('paymentMethod'));
+  }
+
+  setPaymentMethod(payments): FormArray {
+    const formArray = new FormArray([]);
+    payments.forEach(data => {
+      formArray.push(this.formBuilder.group({
+        id: data.id,
+        referredType: data.referredType,
+        baseType: data.baseType,
+        type: data.type,
+        name: data.name,
+        href: data.href,
+        schemaLocation: data.schemaLocation,
+      }));
+    });
+
+    return formArray;
+  }
+
+  addPaymentMethod() {
+    this.paymentMethodListFormArray.push(this.formBuilder.group({
+      id: [''],
+      referredType: ['CreditCardPayment'],
+      baseType: [''],
+      type: [''],
+      name: [''],
+      href: [''],
+      schemaLocation: [''],
+    }));
+  }
+
+  removePaymentMethod(i: number) {
+    this.paymentMethodListFormArray.removeAt(i);
+  }
+
+  //characteristic
+  get characteristicListFormArray() {
+    return (<FormArray>this.queryForm.get('characteristic'));
+  }
+
+  setCharacteristic(characteristic): FormArray {
+    const formArray = new FormArray([]);
+    characteristic.forEach(data => {
+      formArray.push(this.formBuilder.group({
+        id: data.id,
+        valueType: data.valueType,
+        baseType: data.baseType,
+        type: data.type,
+        name: data.name,
+        value: data.value,
+        schemaLocation: data.schemaLocation,
+      }));
+    });
+
+    return formArray;
+  }
+
+  addCharacteristic() {
+    this.characteristicListFormArray.push(this.formBuilder.group({
+      id: [''],
+      baseType: [''],
+      type: [''],
+      name: [''],
+      valueType: [''],
+      value: [''],
+      schemaLocation: [''],
+    }));
+  }
+
+  removeCharacteristic(i: number) {
+    this.characteristicListFormArray.removeAt(i);
+  }
+
+  // relatedParty
+  get relatedPartyListFormArray() {
+    return (<FormArray>this.queryForm.get('relatedParty'));
+  }
+
+  setRelatedParty(relatedParty): FormArray {
+    const formArray = new FormArray([]);
+    relatedParty.forEach(data => {
+      formArray.push(this.formBuilder.group({
+        id: data.id,
+        referredType: data.referredType,
+        baseType: data.baseType,
+        type: data.type,
+        name: data.name,
+        role: data.role,
+        href: data.href,
+        schemaLocation: data.schemaLocation,
+      }));
+    });
+
+    return formArray;
+  }
+
+  addRelatedParty() {
+    this.relatedPartyListFormArray.push(this.formBuilder.group({
+      id: [''],
+      referredType: [''],
+      baseType: [''],
+      type: [''],
+      name: [''],
+      role: [''],
+      href: [''],
+      schemaLocation: [''],
+    }));
+  }
+
+  removeRelatedParty(i: number) {
+    this.relatedPartyListFormArray.removeAt(i);
+  }
+
+  // engagedParty
+  get engagedPartyListFormArray() {
+    return (<FormArray>this.queryForm.get('engagedParty'));
+  }
+
+  setEngagedParty(engagedParty): FormArray {
+    const formArray = new FormArray([]);
+    engagedParty.forEach(data => {
+      formArray.push(this.formBuilder.group({
+        id: data.id,
+        referredType: data.referredType,
+        baseType: data.baseType,
+        type: data.type,
+        name: data.name,
+        role: data.role,
+        href: data.href,
+        schemaLocation: data.schemaLocation,
+      }));
+    });
+
+    return formArray;
+  }
+
+  addEngagedParty() {
+    this.engagedPartyListFormArray.push(this.formBuilder.group({
+      id: [''],
+      referredType: [''],
+      baseType: [''],
+      type: [''],
+      name: [''],
+      role: [''],
+      href: [''],
+      schemaLocation: [''],
+    }));
+  }
+
+  removeEngagedParty(i: number) {
+    this.engagedPartyListFormArray.removeAt(i);
+  }
+
+  // agreement
+  get agreementListFormArray() {
+    return (<FormArray>this.queryForm.get('agreement'));
+  }
+
+  setAgreement(agreement): FormArray {
+    const formArray = new FormArray([]);
+    agreement.forEach(data => {
+      formArray.push(this.formBuilder.group({
+        id: data.id,
+        referredType: data.referredType,
+        baseType: data.baseType,
+        type: data.type,
+        name: data.name,
+        href: data.href,
+        schemaLocation: data.schemaLocation,
+      }));
+    });
+
+    return formArray;
+  }
+
+  addAgreement() {
+    this.agreementListFormArray.push(this.formBuilder.group({
+      id: [''],
+      referredType: [''],
+      baseType: [''],
+      type: [''],
+      name: [''],
+      href: [''],
+      schemaLocation: [''],
+    }));
+  }
+
+  removeAgreement(i: number) {
+    this.agreementListFormArray.removeAt(i);
+  }
+
+  // creditProfile
+  get creditProfileListFormArray() {
+    return (<FormArray>this.queryForm.get('creditProfile'));
+  }
+
+  setCreditProfile(creditProfile) {
+    const formArray = new FormArray([]);
+    creditProfile.forEach(data => {
+      formArray.push(this.formBuilder.group({
+        creditProfileId: data.id,
+        creditProfileDate: data.creditProfileDate,
+        creditProfilecreditScore: data.creditScore,
+        creditProfilecreditRiskRating: data.creditRiskRating,
+        creditProfileType: data.type,
+        creditProfileBaseType: data.baseType,
+        creditProfileSchemaLocation: data.schemaLocation,
+        creditProfileStartDateTime: data.validFor.startDateTime,
+        creditProfileEndDateTime: data.validFor.endDateTime,
+      }));
+    });
+
+    return formArray;
+  }
+
+  addCreditProfile() {
+    this.creditProfileListFormArray.push(this.formBuilder.group({
+      creditProfileId: [''],
+      creditProfileDate: [''],
+      creditProfilecreditScore: [''],
+      creditProfilecreditRiskRating: [''],
+      creditProfileType: [''],
+      creditProfileBaseType: [''],
+      creditProfileSchemaLocation: [''],
+      creditProfileStartDateTime: [''],
+      creditProfileEndDateTime: [''],
+    }));
+  }
+
+  removeCreditProfile(i: number) {
+    this.creditProfileListFormArray.removeAt(i);
+  }
+
+  // contactMedium
+  get contactMediumListFormArray() {
+    return (<FormArray>this.queryForm.get('contactMedium'));
+  }
+
+  setContactMedium(contactMedium) {
+    const formArray = new FormArray([]);
+    contactMedium.forEach(data => {
+      formArray.push(this.formBuilder.group({
+        contactMediumId: data.id,
+        contactMediumMediumType: data.mediumType,
+        contactMediumPreferred: data.preferred,
+        contactMediumBaseType: data.baseType,
+        contactMediumReferredType: data.referredType,
+        contactMediumSchemaLocation: data.schemaLocation,
+        contactMediumStartDateTime: data.validFor.startDateTime,
+        contactMediumEndDateTime: data.validFor.endDateTime,
+
+        // contact medium characteristics
+        contactMediumCharacteristicId: data.characteristic.id,
+        contactMediumCharacteristicCountry: data.characteristic.country,
+        contactMediumCharacteristiCity: data.characteristic.city,
+        contactMediumCharacteristicContactType: data.characteristic.contactType,
+        contactMediumCharacteristicSocialNetworkId: data.characteristic.socialNetworkId,
+        contactMediumCharacteristicEmailAddress: data.characteristic.emailAddress,
+        contactMediumCharacteristicPhoneNumber: data.characteristic.phoneNumber,
+        contactMediumCharacteristicStateOrProvince: data.characteristic.stateOrProvince,
+        contactMediumCharacteristicFaxNumber: data.characteristic.faxNumber,
+        contactMediumCharacteristicPostCode: data.characteristic.postCode,
+        contactMediumCharacteristicStreet1: data.characteristic.street1,
+        contactMediumCharacteristicStreet2: data.characteristic.street2,
+        contactMediumCharacteristicSchemaLocation: data.characteristic.schemaLocation,
+        contactMediumCharacteristicType: data.characteristic.type,
+        contactMediumCharacteristicBaseType: data.characteristic.baseType,
+      }));
+    });
+
+    return formArray;
+  }
+
+  addContactMedium() {
+    this.contactMediumListFormArray.push(this.formBuilder.group({
+      contactMediumId: [''],
+      contactMediumMediumType: [''],
+      contactMediumPreferred: [''],
+      contactMediumBaseType: [''],
+      contactMediumReferredType: [''],
+      contactMediumSchemaLocation: [''],
+      contactMediumStartDateTime: [''],
+      contactMediumEndDateTime: [''],
+
+      // contact medium characteristics
+      contactMediumCharacteristicId: [''],
+      contactMediumCharacteristicCountry: [''],
+      contactMediumCharacteristiCity: [''],
+      contactMediumCharacteristicContactType: [''],
+      contactMediumCharacteristicSocialNetworkId: [''],
+      contactMediumCharacteristicEmailAddress: [''],
+      contactMediumCharacteristicPhoneNumber: [''],
+      contactMediumCharacteristicStateOrProvince: [''],
+      contactMediumCharacteristicFaxNumber: [''],
+      contactMediumCharacteristicPostCode: [''],
+      contactMediumCharacteristicStreet1: [''],
+      contactMediumCharacteristicStreet2: [''],
+      contactMediumCharacteristicSchemaLocation: [''],
+      contactMediumCharacteristicType: [''],
+      contactMediumCharacteristicBaseType: [''],
+    }));
+  }
+
+  removeContactMedium(i: number) {
+    this.contactMediumListFormArray.removeAt(i);
+  }
+
+  onFormSubmit(value: any) {
+    console.log(value, "hh")
+  }
 
 }

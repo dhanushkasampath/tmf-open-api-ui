@@ -63,3 +63,16 @@ body {
   border-color: #652d86;
   box-shadow: none;
 }
+
+.remove-btn {
+  border: 0;
+  background: none;
+  padding: 0;
+  margin-bottom: 15px;
+}
+
+.add-btn{
+    border: 0;
+    padding: 10px;
+    margin-bottom: 20px;
+}
