@@ -10,16 +10,27 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+/* common container */
 .form-container {
   padding: 25px;
 }
 
+/* table styles */
+table,
+td,
+th {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+table {
+  width: 100%;
+}
+
+/* form styles */
 .mat-form-field-appearance-outline .mat-form-field-infix {
   padding: 12px;
   border: 0;
-}
-.form-container .field-label {
-  /* margin-top: 10px; */
 }
 
 .mat-form-field {
@@ -41,6 +52,7 @@ body {
   margin-bottom: 1rem;
 }
 
+/* button styles */
 .btn-primary {
   background-color: #652d86;
   border-color: #652d86;
@@ -71,8 +83,22 @@ body {
   margin-bottom: 15px;
 }
 
-.add-btn{
-    border: 0;
-    padding: 10px;
-    margin-bottom: 20px;
+.add-btn {
+  border: 0;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+/* modal styles */
+.cdk-overlay-pane.confirmation-modal {
+  width: 500px !important;
+}
+
+.main-topic h5 {
+  font-weight: bold;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+.sub-topic h5 {
+  font-size: 14px;
 }

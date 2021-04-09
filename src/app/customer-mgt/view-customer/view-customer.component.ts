@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CustomerServiceService } from '../../services/customer-service.service';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-view-customer',
@@ -12,14 +13,26 @@ export class ViewCustomerComponent implements OnInit {
 
   customerData = [];
   isUpdateView = false;
+  customerID: number;
+  customerId: number;
 
   queryForm: FormGroup;
+  @ViewChild('DeleteConfirmationDialog', { static: false }) DeleteConfirmationDialog: TemplateRef<any>;
+  @ViewChild('UpdateConfirmationDialog', { static: false }) UpdateConfirmationDialog: TemplateRef<any>;
+  @ViewChild('DeleteSuccesfullyDialog', { static: false }) DeleteSuccesfullyDialog: TemplateRef<any>;
+
   constructor(private formBuilder: FormBuilder,
     private route: ActivatedRoute, private customerService: CustomerServiceService,
-    private router: Router) { }
+    private router: Router, public dialog: MatDialog,) {
+    this.route.params.subscribe(params => {
+      if (params !== null) {
+        this.customerId = params.id;
+        this.getCustomerById(this.customerId);
+      }
+    });
+  }
 
   ngOnInit(): void {
-    this.getCustomerById();
     this.queryForm = this.formBuilder.group({
       id: new FormControl(''),
       name: new FormControl(''),
@@ -29,7 +42,9 @@ export class ViewCustomerComponent implements OnInit {
       statusReason: new FormControl(''),
       baseType: new FormControl(''),
       schemaLocation: new FormControl(''),
-      startDateTime: new FormControl(''),
+      startDateTime: new FormControl('', Validators.compose([
+        Validators.required
+      ])),
       endDateTime: new FormControl(''),
 
       account: this.formBuilder.array([]),
@@ -58,7 +73,8 @@ export class ViewCustomerComponent implements OnInit {
     });
   }
 
-  getCustomerById() {
+  getCustomerById(id) {
+
     const request = {
       "requestHeader": {
         "channel": "app",
@@ -67,7 +83,7 @@ export class ViewCustomerComponent implements OnInit {
       }
     }
 
-    this.customerService.getCustomerById()
+    this.customerService.getCustomerById(id)
       .subscribe(res => {
         this.customerData = res.responseData;
         const accountData = res.responseData.account;
@@ -106,9 +122,7 @@ export class ViewCustomerComponent implements OnInit {
       });
   }
 
-
   updateView() {
-    console.log("bb")
     this.isUpdateView = true;
   }
 
@@ -462,8 +476,155 @@ export class ViewCustomerComponent implements OnInit {
     this.contactMediumListFormArray.removeAt(i);
   }
 
+  // update customer
   onFormSubmit(value: any) {
-    console.log(value, "hh")
+
+    const creditProfileList = [];
+    const contactMediumList = [];
+
+    value.creditProfile &&
+      value.creditProfile.map((item) => {
+        const profile = {
+          id: item.creditProfileId,
+          creditProfileDate: item.creditProfileDate,
+          creditScore: item.creditProfilecreditScore,
+          baseType: item.creditProfileBaseType,
+          type: item.creditProfileType,
+          creditRiskRating: item.creditProfilecreditRiskRating,
+          schemaLocation: item.creditProfileSchemaLocation,
+          validFor: {
+            startDateTime: item.creditProfileStartDateTime,
+            endDateTime: item.creditProfileEndDateTime,
+          }
+        };
+        creditProfileList.push(profile);
+      });
+
+
+    value.contactMedium &&
+      value.contactMedium.map((item) => {
+        const contact = {
+          id: item.contactMediumId,
+          mediumType: item.contactMediumMediumType,
+          preferred: item.contactMediumPreferred,
+          baseType: item.contactMediumBaseType,
+          referredType: item.contactMediumReferredType,
+          schemaLocation: item.contactMediumSchemaLocation,
+          validFor: {
+            startDateTime: item.contactMediumStartDateTime,
+            endDateTime: item.contactMediumEndDateTime,
+          },
+          characteristic: {
+            id: item.contactMediumCharacteristicId,
+            country: item.contactMediumCharacteristicCountry,
+            city: item.contactMediumCharacteristiCity,
+            contactType: item.contactMediumCharacteristicContactType,
+            socialNetworkId: item.contactMediumCharacteristicSocialNetworkId,
+            emailAddress: item.contactMediumCharacteristicEmailAddress,
+            phoneNumber: item.contactMediumCharacteristicPhoneNumber,
+            stateOrProvince: item.contactMediumCharacteristicStateOrProvince,
+            faxNumber: item.contactMediumCharacteristicFaxNumber,
+            postCode: item.contactMediumCharacteristicPostCode,
+            street1: item.contactMediumCharacteristicStreet1,
+            street2: item.contactMediumCharacteristicStreet2,
+            schemaLocation: item.contactMediumCharacteristicSchemaLocation,
+            type: item.contactMediumCharacteristicType,
+            baseType: item.contactMediumCharacteristicBaseType,
+          }
+        };
+        contactMediumList.push(contact);
+      });
+
+    const request = {
+      "customer": {
+        "id": value.id,
+        "@type": value.type,
+        "href": value.href,
+        "name": value.name,
+        "status": value.status,
+        "statusReason": value.statusReason,
+        "baseType": value.baseType,
+        "schemaLocation": value.schemaLocation,
+        "validFor": {
+          "startDateTime": value.startDateTime,
+          "endDateTime": value.endDateTime,
+        },
+        "engagedParty": value.engagedParty,
+        "account": value.account,
+        "paymentMethod": value.paymentMethod,
+        "agreement": value.agreement,
+        "relatedParty": value.relatedParty,
+        "characteristic": value.characteristic,
+        "contactMedium": contactMediumList,
+        "creditProfile": creditProfileList,
+        "requestHeader": {
+          "channel": "web",
+          "requestId": "qadsf-sd23fsd-ffgss-fdsff",
+          "timestamp": "2020-02-24T14:40:00"
+        }
+      }
+    }
+
+    this.customerService.updateCustomer(this.customerId, request)
+      .subscribe(res => {
+        this.updateConfirmation();
+      }, (err) => {
+        console.log("error");
+      });
+  }
+
+  // ask for confirmation to delete
+  userDeleteConfirmation() {
+    const dialogRef = this.dialog.open(this.DeleteConfirmationDialog,
+      {
+        width: '100px',
+        panelClass: 'confirmation-modal',
+        backdropClass: 'server-selection-model-overlay',
+        disableClose: true
+      }
+    );
+    dialogRef.afterClosed().subscribe(result => {
+    })
+  }
+
+  // delete customer
+  deleteCustomer() {
+    this.customerService.deleteCustomer(this.customerId)
+      .subscribe(res => {
+        this.succesfullyDeleted();
+      }, (err) => {
+        console.log("error");
+      });
+  }
+
+  // display delete successful modal
+  succesfullyDeleted() {
+    const dialogRef = this.dialog.open(this.DeleteSuccesfullyDialog,
+      {
+        width: '100px',
+        panelClass: 'confirmation-modal',
+        backdropClass: 'server-selection-model-overlay',
+        disableClose: true
+      }
+    );
+    dialogRef.afterClosed().subscribe(result => {
+      this.router.navigate([''])
+    })
+  }
+
+  // display update successful modal
+  updateConfirmation() {
+    const dialogRef = this.dialog.open(this.UpdateConfirmationDialog,
+      {
+        width: '100px',
+        panelClass: 'confirmation-modal',
+        backdropClass: 'server-selection-model-overlay',
+        disableClose: true
+      }
+    );
+    dialogRef.afterClosed().subscribe(result => {
+      this.router.navigate([''])
+    })
   }
 
 }

@@ -1240,12 +1240,41 @@
             </div>
 
             <div class="row">
-                <div class="form-button-group">
-                    <button (click)="onFormSubmit(queryForm.value)" class="btn btn-primary">
-                        Save
-                    </button>
+                <div class="col-md-12">
+                    <div class="form-button-group">
+                        <button (click)="onFormSubmit(queryForm.value)" class="btn btn-primary">
+                            Query
+                        </button>
+                    </div>
                 </div>
             </div>
         </form>
+    </div>
+
+    <div *ngIf=displayTable class="mt-4">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Href</th>
+                    <th>Status Reason</th>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Created Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let unitData of customerList; let i = index">
+                    <td>{{unitData.id}}</td>
+                    <td>{{unitData.href}}</td>
+                    <td>{{unitData.statusReason}}</td>
+                    <td>{{unitData.type}}</td>
+                    <td>{{unitData.name}}</td>
+                    <td>{{unitData.validFor.startDateTime}}</td>
+                    <td><a routerLink="view-customer/{{unitData.id}}">View</a></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { CustomerServiceService } from '../../services/customer-service.service';
 
 @Component({
   selector: 'app-create-customer',
@@ -11,8 +12,8 @@ export class CreateCustomerComponent implements OnInit {
 
   queryForm: FormGroup;
   constructor(private formBuilder: FormBuilder,
-    private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private customerService: CustomerServiceService) { }
 
   ngOnInit(): void {
     this.queryForm = this.formBuilder.group({
@@ -24,7 +25,9 @@ export class CreateCustomerComponent implements OnInit {
       statusReason: new FormControl(''),
       baseType: new FormControl(''),
       schemaLocation: new FormControl(''),
-      startDateTime: new FormControl(''),
+      startDateTime: new FormControl('', Validators.compose([
+        Validators.required
+      ])),
       endDateTime: new FormControl(''),
 
       account: this.formBuilder.array(
@@ -52,10 +55,6 @@ export class CreateCustomerComponent implements OnInit {
         []),
 
     });
-  }
-
-  onFormSubmit(value: any) {
-    console.log(value, "hh")
   }
 
   // account
@@ -211,7 +210,6 @@ export class CreateCustomerComponent implements OnInit {
     this.creditProfileListFormArray.removeAt(i);
   }
 
-
   // contactMedium
   get contactMediumListFormArray() {
     return (<FormArray>this.queryForm.get('contactMedium'));
@@ -249,6 +247,102 @@ export class CreateCustomerComponent implements OnInit {
 
   removeContactMedium(i: number) {
     this.contactMediumListFormArray.removeAt(i);
+  }
+
+  onFormSubmit(value: any) {
+
+    const creditProfileList = [];
+    const contactMediumList = [];
+
+    value.creditProfile &&
+      value.creditProfile.map((item) => {
+        const profile = {
+          id: item.creditProfileId,
+          creditProfileDate: item.creditProfileDate,
+          creditScore: item.creditProfilecreditScore,
+          baseType: item.creditProfileBaseType,
+          type: item.creditProfileType,
+          creditRiskRating: item.creditProfilecreditRiskRating,
+          schemaLocation: item.creditProfileSchemaLocation,
+          validFor: {
+            startDateTime: item.creditProfileStartDateTime,
+            endDateTime: item.creditProfileEndDateTime,
+          }
+        };
+        creditProfileList.push(profile);
+      });
+
+
+    value.contactMedium &&
+      value.contactMedium.map((item) => {
+        const contact = {
+          id: item.contactMediumId,
+          mediumType: item.contactMediumMediumType,
+          preferred: item.contactMediumPreferred,
+          baseType: item.contactMediumBaseType,
+          referredType: item.contactMediumReferredType,
+          schemaLocation: item.contactMediumSchemaLocation,
+          validFor: {
+            startDateTime: item.contactMediumStartDateTime,
+            endDateTime: item.contactMediumEndDateTime,
+          },
+          characteristic: {
+            id: item.contactMediumCharacteristicId,
+            country: item.contactMediumCharacteristicCountry,
+            city: item.contactMediumCharacteristiCity,
+            contactType: item.contactMediumCharacteristicContactType,
+            socialNetworkId: item.contactMediumCharacteristicSocialNetworkId,
+            emailAddress: item.contactMediumCharacteristicEmailAddress,
+            phoneNumber: item.contactMediumCharacteristicPhoneNumber,
+            stateOrProvince: item.contactMediumCharacteristicStateOrProvince,
+            faxNumber: item.contactMediumCharacteristicFaxNumber,
+            postCode: item.contactMediumCharacteristicPostCode,
+            street1: item.contactMediumCharacteristicStreet1,
+            street2: item.contactMediumCharacteristicStreet2,
+            schemaLocation: item.contactMediumCharacteristicSchemaLocation,
+            type: item.contactMediumCharacteristicType,
+            baseType: item.contactMediumCharacteristicBaseType,
+          }
+        };
+        contactMediumList.push(contact);
+      });
+
+    const request = {
+      "customer": {
+        "id": value.id,
+        "@type": value.type,
+        "href": value.href,
+        "name": value.name,
+        "status": value.status,
+        "statusReason": value.statusReason,
+        "baseType": value.baseType,
+        "schemaLocation": value.schemaLocation,
+        "validFor": {
+          "startDateTime": value.startDateTime,
+          "endDateTime": value.endDateTime,
+        },
+        "engagedParty": value.engagedParty,
+        "account": value.account,
+        "paymentMethod": value.paymentMethod,
+        "agreement": value.agreement,
+        "relatedParty": value.relatedParty,
+        "characteristic": value.characteristic,
+        "contactMedium": contactMediumList,
+        "creditProfile": creditProfileList,
+        "requestHeader": {
+          "channel": "web",
+          "requestId": "qadsf-sd23fsd-ffgss-fdsff",
+          "timestamp": "2020-02-24T14:40:00"
+        }
+      }
+    }
+
+    this.customerService.addCustomer(request)
+      .subscribe(res => {
+        this.router.navigate(['']);
+      }, (err) => {
+        console.log("error");
+      });
   }
 
 }
