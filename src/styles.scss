@@ -1,1 +1,105 @@
+
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* common container */
+.form-container {
+  padding: 25px;
+}
+
+/* table styles */
+table,
+td,
+th {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+table {
+  width: 100%;
+}
+
+/* form styles */
+.mat-form-field-appearance-outline .mat-form-field-infix {
+  padding: 12px;
+  border: 0;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.section-topic h3 {
+  margin: 16px 0;
+  font-weight: bold;
+  color: #652d86;
+  font-size: 18px;
+  letter-spacing: 0.6px;
+}
+
+.sub-topic-label {
+  font-weight: bold;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+}
+
+/* button styles */
+.btn-primary {
+  background-color: #652d86;
+  border-color: #652d86;
+}
+
+.btn-primary:hover {
+  background-color: #652d86;
+  border-color: #652d86;
+  box-shadow: none;
+}
+
+.btn-primary:focus {
+  background-color: #652d86;
+  border-color: #652d86;
+  box-shadow: none;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus {
+  background-color: #652d86;
+  border-color: #652d86;
+  box-shadow: none;
+}
+
+.remove-btn {
+  border: 0;
+  background: none;
+  padding: 0;
+  margin-bottom: 15px;
+}
+
+.add-btn {
+  border: 0;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+/* modal styles */
+.cdk-overlay-pane.confirmation-modal {
+  width: 500px !important;
+}
+
+.main-topic h5 {
+  font-weight: bold;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+.sub-topic h5 {
+  font-size: 14px;
+}
