@@ -1,0 +1,31 @@
+<div class="form-container">
+    <div class="float-right">
+        <button class="btn btn-primary mr-3 mb-4" routerLink="add-new-customer">Add New Customer</button>
+        <button class="btn btn-primary mb-4" routerLink="query-customer">Query Customer</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Href</th>
+                <th>Status Reason</th>
+                <th>Type</th>
+                <th>Name</th>
+                <th>Created Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let unitData of customerList; let i = index">
+                <td>{{unitData.id}}</td>
+                <td>{{unitData.href}}</td>
+                <td>{{unitData.statusReason}}</td>
+                <td>{{unitData.type}}</td>
+                <td>{{unitData.name}}</td>
+                <td>{{unitData.validFor.startDateTime}}</td>
+                <td><a routerLink="view-customer/{{unitData.id}}">View</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

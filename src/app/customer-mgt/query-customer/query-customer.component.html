@@ -1,0 +1,1280 @@
+<div class="form-container">
+    <div>
+        <form [formGroup]="queryForm">
+            <div id="basic">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">ID</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="ID" [formControlName]="'id'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Name</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Name" [formControlName]="'name'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Href</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Href" [formControlName]="'href'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Status</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Status" [formControlName]="'status'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Type</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Type" [formControlName]="'type'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Status Reason</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Status Reason" [formControlName]="'statusReason'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Base Type</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Base Type" [formControlName]="'baseType'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Schema Location</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Schema Location" [formControlName]="'schemaLocation'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12"><label class="sub-topic-label">Valid For</label></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Start date/time</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Start date/time" [formControlName]="'startDateTime'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">End date/time</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="End date/time" [formControlName]="'endDateTime'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <mat-divider></mat-divider>
+            <div id="account">
+                <div class="row section-topic">
+                    <div class="col-md-12">
+                        <h3>Account</h3>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">ID</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="ID" [formControlName]="'accountId'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Name</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Name" [formControlName]="'accountName'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Href</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Href" [formControlName]="'accountHref'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Referred Type</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Referred Type"
+                                        [formControlName]="'accountReferredType'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Type</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Type" [formControlName]="'accountType'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Base Type</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Base Type" [formControlName]="'accountBaseType'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Description</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Description" [formControlName]="'accountDescription'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Schema Location</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Schema Location"
+                                        [formControlName]="'accountSchemaLocation'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <mat-divider></mat-divider>
+            <div id="payment">
+                <div class="row section-topic">
+                    <div class="col-md-12">
+                        <h3>Payment</h3>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">ID</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="ID" [formControlName]="'paymentId'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Name</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Name" [formControlName]="'paymentName'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Href</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Href" [formControlName]="'paymentSchemaLocation'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Referred Type</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Referred Type"
+                                        [formControlName]="'paymentReferredType'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Type</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Type" [formControlName]="'paymentType'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Base Type</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Base Type" [formControlName]="'paymentBaseType'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Schema Location</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Schema Location"
+                                        [formControlName]="'paymentSchemaLocation'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <mat-divider></mat-divider>
+            <div id="characteristic">
+                <div class="row section-topic">
+                    <div class="col-md-12">
+                        <h3>Characteristic</h3>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">ID</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="ID" [formControlName]="'characteristicId'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Name</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Name" [formControlName]="'characteristicName'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Type</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Type" [formControlName]="'characteristicType'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Base Type</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Referred Type"
+                                        [formControlName]="'characteristicBaseType'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Value</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Value" [formControlName]="'characteristicValue'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Value Type</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Value Type"
+                                        [formControlName]="'characteristicValueType'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Schema Location</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Schema Location"
+                                        [formControlName]="'characteristicSchemaLocation'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <mat-divider></mat-divider>
+            <div id="relatedParty">
+                <div class="row section-topic">
+                    <div class="col-md-12">
+                        <h3>Related Party</h3>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">ID</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="ID" [formControlName]="'relatedPartyId'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Name</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Name" [formControlName]="'relatedPartyName'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Href</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Href" [formControlName]="'relatedPartyHref'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Referred Type</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Referred Type"
+                                        [formControlName]="'relatedPartyReferredType'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Type</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Type" [formControlName]="'relatedPartyType'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Base Type</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Base Type" [formControlName]="'relatedPartyBaseType'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Role</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Role" [formControlName]="'relatedpartyRole'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Schema Location</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Schema Location"
+                                        [formControlName]="'relatedPartySchemaLocation'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <mat-divider></mat-divider>
+            <div id="agreement">
+                <div class="row section-topic">
+                    <div class="col-md-12">
+                        <h3>Agreement</h3>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">ID</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="ID" [formControlName]="'agreementId'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Name</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Name" [formControlName]="'agreementName'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Href</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Href" [formControlName]="'agreementHref'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Referred Type</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Referred Type"
+                                        [formControlName]="'agreementReferredType'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Type</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Type" [formControlName]="'agreementType'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Base Type</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Base Type" [formControlName]="'agreementBaseType'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Schema Location</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Schema Location"
+                                        [formControlName]="'agreementSchemaLocation'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <mat-divider></mat-divider>
+            <div id="engagedParty">
+                <div class="row section-topic">
+                    <div class="col-md-12">
+                        <h3>Engaged Party</h3>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">ID</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="ID" [formControlName]="'engagedPartyId'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Name</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Name" [formControlName]="'engagedPartyName'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Href</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Href" [formControlName]="'engagedPartyHref'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Referred Type</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Referred Type"
+                                        [formControlName]="'engagedPartyReferredType'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Type</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Type" [formControlName]="'engagedPartyType'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Base Type</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Base Type" [formControlName]="'engagedPartyBaseType'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Role</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Role" [formControlName]="'engagedPartyRole'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Schema Location</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Schema Location"
+                                        [formControlName]="'engagedPartySchemaLocation'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <mat-divider></mat-divider>
+            <div id="creditProfile">
+                <div class="row section-topic">
+                    <div class="col-md-12">
+                        <h3>Credit Profile</h3>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">ID</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="cartonQuantity" [formControlName]="'creditProfileId'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Date</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Date" [formControlName]="'creditProfileDate'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Credit Score</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Credit Score"
+                                        [formControlName]="'creditProfilecreditScore'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Credit Risk Rating</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Credit Risk Rating"
+                                        [formControlName]="'creditProfilecreditRiskRating'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Type</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Type" [formControlName]="'creditProfileType'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Base Type</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Base Type" [formControlName]="'creditProfileBaseType'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Schema Location</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Schema Location"
+                                        [formControlName]="'creditProfileSchemaLocation'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12"><label class="sub-topic-label">Valid For</label></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Start date/time</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Start date/time"
+                                        [formControlName]="'creditProfileStartDateTime'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">End date/time</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="End date/time"
+                                        [formControlName]="'creditProfileEndDateTime'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <mat-divider></mat-divider>
+            <div id="contactMedium">
+                <div class="row section-topic">
+                    <div class="col-md-12">
+                        <h3>Contact Medium</h3>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">ID</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="cartonQuantity" [formControlName]="'contactMediumId'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Medium Type</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Medium Type"
+                                        [formControlName]="'contactMediumMediumType'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Preferred</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Credit Score"
+                                        [formControlName]="'contactMediumPreferred'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Base Type</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Credit Risk Rating"
+                                        [formControlName]="'contactMediumBaseType'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Referred Type</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Referred Type"
+                                        [formControlName]="'contactMediumReferredType'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Schema Location</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Schema Location"
+                                        [formControlName]="'contactMediumSchemaLocation'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12"><label class="sub-topic-label">Valid For</label></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Start date/time</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Start date/time"
+                                        [formControlName]="'contactMediumStartDateTime'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">End date/time</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="End date/time"
+                                        [formControlName]="'contactMediumEndDateTime'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="row">
+                        <div class="col-md-12"><label class="sub-topic-label">Characteristic</label></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p class="field-label">ID</p>
+                                </div>
+                                <div class="col-md-9">
+                                    <mat-form-field appearance="outline">
+                                        <input matInput placeholder="cartonQuantity"
+                                            [formControlName]="'contactMediumCharacteristicId'">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p class="field-label">Country</p>
+                                </div>
+                                <div class="col-md-9">
+                                    <mat-form-field appearance="outline">
+                                        <input matInput placeholder="Country"
+                                            [formControlName]="'contactMediumCharacteristicCountry'">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p class="field-label">City</p>
+                                </div>
+                                <div class="col-md-9">
+                                    <mat-form-field appearance="outline">
+                                        <input matInput placeholder="City"
+                                            [formControlName]="'contactMediumCharacteristiCity'">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p class="field-label">Contact Type</p>
+                                </div>
+                                <div class="col-md-9">
+                                    <mat-form-field appearance="outline">
+                                        <input matInput placeholder="Contact Type"
+                                            [formControlName]="'contactMediumCharacteristicContactType'">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p class="field-label">Social Network Id</p>
+                                </div>
+                                <div class="col-md-9">
+                                    <mat-form-field appearance="outline">
+                                        <input matInput placeholder="Social Network Id"
+                                            [formControlName]="'contactMediumCharacteristicSocialNetworkId'">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p class="field-label">Email</p>
+                                </div>
+                                <div class="col-md-9">
+                                    <mat-form-field appearance="outline">
+                                        <input matInput placeholder="Email"
+                                            [formControlName]="'contactMediumCharacteristicEmailAddress'">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p class="field-label">Phone Number</p>
+                                </div>
+                                <div class="col-md-9">
+                                    <mat-form-field appearance="outline">
+                                        <input matInput placeholder="Phone Number"
+                                            [formControlName]="'contactMediumCharacteristicPhoneNumber'">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p class="field-label">State Or Province</p>
+                                </div>
+                                <div class="col-md-9">
+                                    <mat-form-field appearance="outline">
+                                        <input matInput placeholder="State Or Province"
+                                            [formControlName]="'contactMediumCharacteristicStateOrProvince'">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p class="field-label">Fax</p>
+                                </div>
+                                <div class="col-md-9">
+                                    <mat-form-field appearance="outline">
+                                        <input matInput placeholder="Fax"
+                                            [formControlName]="'contactMediumCharacteristicFaxNumber'">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p class="field-label">Post Code</p>
+                                </div>
+                                <div class="col-md-9">
+                                    <mat-form-field appearance="outline">
+                                        <input matInput placeholder="Post Code"
+                                            [formControlName]="'contactMediumCharacteristicPostCode'">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p class="field-label">Street1</p>
+                                </div>
+                                <div class="col-md-9">
+                                    <mat-form-field appearance="outline">
+                                        <input matInput placeholder="Street1"
+                                            [formControlName]="'contactMediumCharacteristicStreet1'">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p class="field-label">Street2</p>
+                                </div>
+                                <div class="col-md-9">
+                                    <mat-form-field appearance="outline">
+                                        <input matInput placeholder="Street2"
+                                            [formControlName]="'contactMediumCharacteristicStreet2'">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Schema Location</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Schema Location"
+                                        [formControlName]="'contactMediumCharacteristicSchemaLocation'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Type</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Type"
+                                        [formControlName]="'contactMediumCharacteristicType'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="field-label">Base Type</p>
+                            </div>
+                            <div class="col-md-9">
+                                <mat-form-field appearance="outline">
+                                    <input matInput placeholder="Base Type"
+                                        [formControlName]="'contactMediumCharacteristicBaseType'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-button-group">
+                        <button (click)="onFormSubmit(queryForm.value)" class="btn btn-primary">
+                            Query
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div *ngIf=displayTable class="mt-4">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Href</th>
+                    <th>Status Reason</th>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Created Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let unitData of customerList; let i = index">
+                    <td>{{unitData.id}}</td>
+                    <td>{{unitData.href}}</td>
+                    <td>{{unitData.statusReason}}</td>
+                    <td>{{unitData.type}}</td>
+                    <td>{{unitData.name}}</td>
+                    <td>{{unitData.validFor.startDateTime}}</td>
+                    <td><a routerLink="/view-customer/{{unitData.id}}">View</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
