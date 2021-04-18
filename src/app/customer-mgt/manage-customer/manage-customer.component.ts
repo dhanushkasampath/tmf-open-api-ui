@@ -557,12 +557,13 @@ export class ManageCustomerComponent implements OnInit {
         "relatedParty": value.relatedParty,
         "characteristic": value.characteristic,
         "contactMedium": contactMediumList,
-        "creditProfile": creditProfileList,
-        "requestHeader": {
-          "channel": "web",
-          "requestId": "qadsf-sd23fsd-ffgss-fdsff",
-          "timestamp": "2020-02-24T14:40:00"
-        }
+        "creditProfile": creditProfileList
+
+      },
+      "requestHeader": {
+                "channel": "web",
+                "requestId": "qadsf-sd23fsd-ffgss-fdsff",
+                "timestamp": "2020-02-24T14:40:00"
       }
     }
 
